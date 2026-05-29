@@ -6,7 +6,7 @@ export default function Header() {
       </h1>
 
       <p className="mt-2 text-slate-400">
-        シラバス詳細キーワード検索
+        シラバス詳細キーワード検索 (2026年2月試験より適用版)
       </p>
     </header>
   );

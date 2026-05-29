@@ -1,27 +1,164 @@
 [
   {
-    "term": "Transformer",
-    "category": "生成AI",
-    "description": "Attention機構を用いたニューラルネットワーク"
+    "term": "AI（人工知能）",
+    "category": "AIとは",
+    "description": "Artificial Intelligence の略称。人間の知的活動をコンピュータ上で再現しようとする技術や研究分野の総称。推論、学習、認識、自然言語理解など幅広い分野を含む。",
+    "example": "例：ChatGPT、自動運転、画像認識AI、音声アシスタント"
   },
   {
-    "term": "RAG",
-    "category": "生成AI",
-    "description": "検索拡張生成"
+    "term": "ダートマス会議",
+    "category": "AIとは",
+    "description": "1956年にアメリカのダートマス大学で開催された会議。ここで初めて『Artificial Intelligence（人工知能）』という言葉が正式に提案された。AI研究の出発点として知られる。",
+    "example": "例：ジョン・マッカーシーらが中心となり開催"
   },
   {
-    "term": "GAN",
+    "term": "ルールベース",
+    "category": "知能をもたらす2つの仕組み",
+    "description": "人間が事前に定義したルールや条件分岐によって動作する方式。機械学習とは異なり、自ら学習は行わない。",
+    "example": "例：『もしAならBを実行』という業務システム"
+  },
+  {
+    "term": "機械学習",
+    "category": "知能をもたらす2つの仕組み",
+    "description": "大量のデータから特徴や規則性を学習し、予測や分類を行う技術。AIの中核技術の一つ。",
+    "example": "例：迷惑メール判定、商品レコメンド"
+  },
+  {
+    "term": "教師あり学習",
+    "category": "知能をもたらす2つの仕組み",
+    "description": "正解ラベル付きデータを用いて学習する機械学習手法。入力と正解の対応関係を学ぶ。",
+    "example": "例：犬と猫の画像を分類するAI"
+  },
+  {
+    "term": "教師なし学習",
+    "category": "知能をもたらす2つの仕組み",
+    "description": "正解ラベルなしでデータの特徴や構造を発見する学習手法。",
+    "example": "例：顧客データのクラスタリング"
+  },
+  {
+    "term": "強化学習",
+    "category": "知能をもたらす2つの仕組み",
+    "description": "AIが行動に対する報酬を受け取りながら最適な行動を学習する手法。",
+    "example": "例：囲碁AI『AlphaGo』"
+  },
+  {
+    "term": "ニューラルネットワーク",
+    "category": "知能をもたらす2つの仕組み",
+    "description": "人間の脳神経回路を模倣した数理モデル。複数のノード（人工ニューロン）を接続して構成される。",
+    "example": "例：画像認識AI、音声認識AI"
+  },
+  {
+    "term": "ディープラーニング",
+    "category": "知能をもたらす2つの仕組み",
+    "description": "多層構造のニューラルネットワークを用いた機械学習技術。大量データから高度な特徴を自動抽出できる。",
+    "example": "例：顔認識、自動翻訳"
+  },
+  {
+    "term": "過学習",
+    "category": "知能をもたらす2つの仕組み",
+    "description": "訓練データに過度に適応してしまい、新しいデータへの汎化性能が低下する現象。",
+    "example": "例：練習問題だけ解けて本番問題が解けない状態"
+  },
+  {
+    "term": "Transformerモデル",
     "category": "生成モデル",
-    "description": "生成器と識別器を競わせる生成モデル"
+    "description": "Attention機構を利用した深層学習モデル。自然言語処理分野に革命をもたらし、現在のLLMの基盤となっている。",
+    "example": "例：GPT、BERT"
   },
   {
-    "term": "CNN",
-    "category": "ニューラルネットワーク",
-    "description": "畳み込みニューラルネットワーク"
+    "term": "Attention Mechanism",
+    "category": "生成モデル",
+    "description": "入力データの重要部分へ重点的に注目する仕組み。Transformerの中核技術。",
+    "example": "例：翻訳時に重要単語へ注目する"
   },
   {
-    "term": "RNN",
-    "category": "ニューラルネットワーク",
-    "description": "回帰型ニューラルネットワーク"
+    "term": "GPTモデル",
+    "category": "生成モデル",
+    "description": "OpenAIが開発した自己回帰型大規模言語モデル。文章生成を得意とする。",
+    "example": "例：ChatGPT"
+  },
+  {
+    "term": "BERTモデル",
+    "category": "生成モデル",
+    "description": "Googleが開発した双方向Transformerモデル。文章理解に強い。",
+    "example": "例：検索エンジンの自然言語理解"
+  },
+  {
+    "term": "ChatGPT",
+    "category": "ChatGPTとは",
+    "description": "OpenAIが提供する対話型生成AIサービス。自然言語で質問や指示を行える。",
+    "example": "例：文章生成、要約、プログラミング支援"
+  },
+  {
+    "term": "RLHF（Reinforcement Learning from Human Feedback）",
+    "category": "ChatGPTとは",
+    "description": "人間のフィードバックを利用してAIの応答品質を改善する強化学習手法。",
+    "example": "例：『より自然な回答』を人間評価で学習"
+  },
+  {
+    "term": "ハルシネーション（Hallucination）",
+    "category": "ChatGPTとは",
+    "description": "生成AIが事実ではない情報をもっともらしく出力してしまう現象。",
+    "example": "例：存在しない論文やURLを生成する"
+  },
+  {
+    "term": "RAG（Retrieval-Augmented Generation）",
+    "category": "RAGとは",
+    "description": "外部情報検索と生成AIを組み合わせる技術。最新情報や社内情報を利用した回答生成が可能。",
+    "example": "例：社内FAQ検索AI"
+  },
+  {
+    "term": "ベクトルデータベース",
+    "category": "RAGとは",
+    "description": "テキストや画像をベクトル化して高速検索するためのデータベース。",
+    "example": "例：Pinecone、Weaviate"
+  },
+  {
+    "term": "フィッシング詐欺",
+    "category": "フィッシング詐欺",
+    "description": "偽サイトや偽メールを利用して個人情報やパスワードを盗み取る詐欺。",
+    "example": "例：銀行を装った偽ログイン画面"
+  },
+  {
+    "term": "ランサムウェア",
+    "category": "フィッシング詐欺",
+    "description": "データを暗号化し、復旧と引き換えに金銭を要求するマルウェア。",
+    "example": "例：企業サーバのファイルを暗号化"
+  },
+  {
+    "term": "著作権",
+    "category": "知的財産権",
+    "description": "創作物を保護する権利。文章、画像、音楽などに適用される。",
+    "example": "例：イラストの無断転載禁止"
+  },
+  {
+    "term": "特許権",
+    "category": "知的財産権",
+    "description": "新しい発明を一定期間独占的に利用できる権利。",
+    "example": "例：新型AIアルゴリズム"
+  },
+  {
+    "term": "LLM",
+    "category": "LM",
+    "description": "Large Language Model の略。大量テキストで学習された大規模言語モデル。",
+    "example": "例：GPT-4、Gemini、Claude"
+  },
+  {
+    "term": "プロンプトエンジニアリング",
+    "category": "LM",
+    "description": "生成AIから望ましい出力を得るために入力文（プロンプト）を工夫する技術。",
+    "example": "例：役割指定、出力形式指定"
+  },
+  {
+    "term": "Zero-Shotプロンプティング",
+    "category": "Zero-Shot",
+    "description": "例示なしでAIへ指示を与えるプロンプト手法。",
+    "example": "例：『次の文章を要約してください』"
+  },
+  {
+    "term": "Few-Shotプロンプティング",
+    "category": "Zero-Shot",
+    "description": "少数の例を提示してAIへ指示を与える手法。",
+    "example": "例：入力例と出力例を数件見せる"
   }
 ]

@@ -19,9 +19,21 @@ export default function KeywordCard({
         </span>
       </div>
 
-      <p className="mt-4 text-slate-200">
+      <p className="mt-4 leading-relaxed text-slate-200">
         {keyword.description}
       </p>
+
+      {keyword.example && (
+        <div className="mt-4 rounded-xl bg-slate-800 p-4">
+          <div className="text-sm font-bold text-cyan-300">
+            例
+          </div>
+
+          <div className="mt-2 text-slate-300">
+            {keyword.example}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
