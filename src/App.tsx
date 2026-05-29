@@ -15,15 +15,64 @@ export default function App() {
       return keywords;
     }
 
-    return keywords.filter((keyword) => {
-      const target = search.toLowerCase();
+    const target = search.toLowerCase();
 
-      return (
-        keyword.term.toLowerCase().includes(target) ||
-        keyword.category.toLowerCase().includes(target) ||
-        keyword.description.toLowerCase().includes(target)
-      );
-    });
+    return keywords
+      .filter((keyword) => {
+        return (
+          keyword.term.toLowerCase().includes(target) ||
+          keyword.chapter.toLowerCase().includes(target) ||
+          keyword.section.toLowerCase().includes(target) ||
+          keyword.description
+            .toLowerCase()
+            .includes(target) ||
+          keyword.tags?.some((tag) =>
+            tag.toLowerCase().includes(target)
+          )
+        );
+      })
+      .sort((a, b) => {
+        const getScore = (keyword: typeof a) => {
+          const term = keyword.term.toLowerCase();
+
+          // 完全一致
+          if (term === target) {
+            return 0;
+          }
+
+          // 前方一致
+          if (term.startsWith(target)) {
+            return 1;
+          }
+
+          // 部分一致
+          if (term.includes(target)) {
+            return 2;
+          }
+
+          // タグ一致
+          if (
+            keyword.tags?.some((tag) =>
+              tag.toLowerCase().includes(target)
+            )
+          ) {
+            return 3;
+          }
+
+          // 説明一致
+          if (
+            keyword.description
+              .toLowerCase()
+              .includes(target)
+          ) {
+            return 4;
+          }
+
+          return 5;
+        };
+
+        return getScore(a) - getScore(b);
+      });
   }, [search]);
 
   const suggestions = useMemo(() => {
@@ -31,12 +80,39 @@ export default function App() {
       return [];
     }
 
+    const target = search.toLowerCase();
+
     return keywords
       .filter((keyword) =>
         keyword.term
           .toLowerCase()
-          .includes(search.toLowerCase())
+          .includes(target)
       )
+      .sort((a, b) => {
+        const aTerm = a.term.toLowerCase();
+        const bTerm = b.term.toLowerCase();
+
+        // 完全一致優先
+        if (aTerm === target) return -1;
+        if (bTerm === target) return 1;
+
+        // 前方一致優先
+        if (
+          aTerm.startsWith(target) &&
+          !bTerm.startsWith(target)
+        ) {
+          return -1;
+        }
+
+        if (
+          !aTerm.startsWith(target) &&
+          bTerm.startsWith(target)
+        ) {
+          return 1;
+        }
+
+        return 0;
+      })
       .slice(0, 5);
   }, [search]);
 

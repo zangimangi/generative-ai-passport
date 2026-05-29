@@ -1,5 +1,8 @@
 export type Keyword = {
   term: string;
-  category: string;
+  chapter: string;
+  section: string;
   description: string;
+  example?: string;
+  tags?: string[];
 };
