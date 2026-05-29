@@ -1,0 +1,27 @@
+[
+  {
+    "term": "Transformer",
+    "category": "生成AI",
+    "description": "Attention機構を用いたニューラルネットワーク"
+  },
+  {
+    "term": "RAG",
+    "category": "生成AI",
+    "description": "検索拡張生成"
+  },
+  {
+    "term": "GAN",
+    "category": "生成モデル",
+    "description": "生成器と識別器を競わせる生成モデル"
+  },
+  {
+    "term": "CNN",
+    "category": "ニューラルネットワーク",
+    "description": "畳み込みニューラルネットワーク"
+  },
+  {
+    "term": "RNN",
+    "category": "ニューラルネットワーク",
+    "description": "回帰型ニューラルネットワーク"
+  }
+]
