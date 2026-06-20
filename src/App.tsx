@@ -1,23 +1,66 @@
-import { useMemo, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 import keywords from "./data/keywords.json";
 
 import Header from "./components/Header";
+import WordQuiz from "./components/WordQuiz";
 import SearchBar from "./components/SearchBar";
 import SearchSuggestion from "./components/SearchSuggestion";
 import KeywordCard from "./components/KeywordCard";
+import type { Keyword } from "./types/keyword";
+
+const keywordList = keywords as Keyword[];
 
 export default function App() {
   const [search, setSearch] = useState("");
+  const [hash, setHash] = useState(
+    window.location.hash
+  );
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setHash(window.location.hash);
+    };
+
+    window.addEventListener(
+      "hashchange",
+      handleHashChange
+    );
+
+    return () => {
+      window.removeEventListener(
+        "hashchange",
+        handleHashChange
+      );
+    };
+  }, []);
+
+  const handleOpenQuiz = () => {
+    const quizUrl = new URL(
+      import.meta.env.BASE_URL,
+      window.location.origin
+    );
+    quizUrl.hash = "/quiz";
+
+    window.open(
+      quizUrl.toString(),
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
 
   const filteredKeywords = useMemo(() => {
     if (!search.trim()) {
-      return keywords;
+      return keywordList;
     }
 
     const target = search.toLowerCase();
 
-    return keywords
+    return keywordList
       .filter((keyword) => {
         return (
           keyword.term.toLowerCase().includes(target) ||
@@ -82,7 +125,7 @@ export default function App() {
 
     const target = search.toLowerCase();
 
-    return keywords
+    return keywordList
       .filter((keyword) =>
         keyword.term
           .toLowerCase()
@@ -116,10 +159,40 @@ export default function App() {
       .slice(0, 5);
   }, [search]);
 
+  if (hash === "#/quiz") {
+    return (
+      <main className="min-h-screen bg-slate-950 text-white">
+        <div className="mx-auto max-w-3xl p-6">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h1 className="text-4xl font-bold">
+                単語クイズ
+              </h1>
+              <p className="mt-2 text-slate-400">
+                説明から該当する単語を考えてください
+              </p>
+            </div>
+
+            <a
+              href={import.meta.env.BASE_URL}
+              className="shrink-0 rounded-xl border border-slate-600 px-4 py-2 text-sm font-bold text-slate-200 transition hover:border-cyan-400 hover:text-cyan-200"
+            >
+              単語帳へ戻る
+            </a>
+          </div>
+
+          <WordQuiz keywords={keywordList} />
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <div className="mx-auto max-w-5xl p-6">
-        <Header />
+        <Header
+          onOpenQuiz={handleOpenQuiz}
+        />
 
         <SearchBar
           value={search}
