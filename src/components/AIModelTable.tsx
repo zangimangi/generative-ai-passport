@@ -209,7 +209,7 @@ export default function AIModelTable({
           AIモデル・サービス一覧
         </p>
         <p className="mt-2 text-sm leading-relaxed text-slate-400">
-          keywords.jsonに存在するモデル系キーワードを、年表・特徴・用途で整理しています。
+          AIモデル・サービスを、年表・特徴・用途で整理しています。
         </p>
       </div>
 

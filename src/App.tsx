@@ -9,6 +9,7 @@ import keywords from "./data/keywords.json";
 import Header from "./components/Header";
 import WordQuiz from "./components/WordQuiz";
 import AIModelTable from "./components/AIModelTable";
+import AiBoomTable from "./components/AiBoomTable";
 import SearchBar from "./components/SearchBar";
 import SearchSuggestion from "./components/SearchSuggestion";
 import KeywordCard from "./components/KeywordCard";
@@ -64,6 +65,21 @@ export default function App() {
 
   window.open(
     modelsUrl.toString(),
+    "_blank",
+    "noopener,noreferrer"
+  );
+};
+
+const handleOpenBooms = () => {
+  const boomsUrl = new URL(
+    import.meta.env.BASE_URL,
+    window.location.origin
+  );
+
+  boomsUrl.hash = "/booms";
+
+  window.open(
+    boomsUrl.toString(),
     "_blank",
     "noopener,noreferrer"
   );
@@ -234,12 +250,44 @@ export default function App() {
   );
 }
 
+if (hash === "#/booms") {
+  return (
+    <main className="min-h-screen bg-slate-950 text-white">
+      <div className="mx-auto max-w-7xl p-6">
+        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h1 className="text-4xl font-bold">
+              AIブーム一覧
+            </h1>
+
+            <p className="mt-2 text-slate-400">
+              AI発展の歴史と技術の変遷
+            </p>
+          </div>
+
+          <a
+            href={import.meta.env.BASE_URL}
+            className="shrink-0 rounded-xl border border-slate-600 px-4 py-2 text-sm font-bold text-slate-200 transition hover:border-cyan-400 hover:text-cyan-200"
+          >
+            単語帳へ戻る
+          </a>
+        </div>
+
+        <AiBoomTable
+          keywords={keywordList}
+        />
+      </div>
+    </main>
+  );
+}
+
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <div className="mx-auto max-w-5xl p-6">
         <Header
           onOpenQuiz={handleOpenQuiz}
           onOpenModels={handleOpenModels}
+          onOpenBooms={handleOpenBooms}
         />
 
         <SearchBar
