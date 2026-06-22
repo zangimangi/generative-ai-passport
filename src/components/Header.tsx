@@ -22,7 +22,7 @@ export default function Header({
             onClick={onOpenBooms}
             className="shrink-0 rounded-xl border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-sm font-bold text-emerald-200 transition hover:border-emerald-300 hover:bg-emerald-500/20"
           >
-            AIブーム一覧
+            AIブーム、レベル一覧
           </button>
 
           <button
