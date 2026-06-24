@@ -1,4 +1,5 @@
 import type { Keyword } from "../types/keyword";
+import modelsImage from "../data/images/models.png";
 
 type ModelRow = {
   term: string;
@@ -257,6 +258,16 @@ export default function AIModelTable({
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="border-t border-slate-800 bg-slate-950/60 p-4 sm:p-5">
+        <div className="overflow-x-auto">
+          <img
+            src={modelsImage}
+            alt="AIモデル・サービス一覧のイメージ"
+            className="mx-auto block w-full max-w-[1100px] object-contain"
+          />
+        </div>
       </div>
     </section>
   );
